@@ -193,7 +193,7 @@ users_{{ name }}_{{ key_name }}_key:
       {% else %}
     - mode: 600
       {% endif %}
-    - show_diff: False
+    - show_changes: False
     - contents_pillar: users:{{ name }}:ssh_keys:{{ _key }}
     - require:
       - user: users_{{ name }}_user
@@ -244,7 +244,7 @@ user_ssh_keys_files_{{ name }}_{{ key_name }}_private_key:
     - user: {{ name }}
     - group: {{ user_group }}
     - mode: 600
-    - show_diff: False
+    - show_changes: False
     - contents_pillar: {{ pillar_name }}:{{ key_name }}:privkey
     - require:
       - user: users_{{ name }}_user
@@ -257,7 +257,7 @@ user_ssh_keys_files_{{ name }}_{{ key_name }}_public_key:
     - user: {{ name }}
     - group: {{ user_group }}
     - mode: 644
-    - show_diff: False
+    - show_changes: False
     - contents_pillar: {{ pillar_name }}:{{ key_name }}:pubkey
     - require:
       - user: users_{{ name }}_user
